@@ -1,0 +1,72 @@
+@import 'mixins';
+
+.header {
+  width: 100vw;
+  padding: 20px 20px;
+  background: aquamarine;
+  height: 60vh;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+
+    ul {
+      display: flex;
+      list-style: none;
+
+      li {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.vision-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .vision-section {
+    grid-column: 4/10;
+    position: relative;
+
+    p:first-of-type {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      @include heading-tb-space;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 368px;
+      background-color: $sprk-red;
+      left: -20px;
+      bottom: -16px;
+    }
+  }
+}
+
+.featured-projects-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .featured-projects-section {
+    grid-column: 4/10;
+
+    h2 {
+      @include heading-tb-space;
+    }
+  }
+}

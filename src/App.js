@@ -1,15 +1,32 @@
+// Import Global Things
 import React from 'react';
-import './App.scss';
-import IconSet from './components/IconSet/IconSet';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+// Import CSS
+import './App.scss';
+
+// Import Components
+import Layout from './components/Layout';
+
+// Import pages
+import home from './pages/home';
+import projects from './pages/projects';
+import working from './pages/working-at-rt';
+import sponsored from './pages/sponsored';
+
+const App = () => {
   return (
-    <main className="sprk-o-CenteredColumn sprk-u-ptl">
-      <IconSet></IconSet>
-      <h1 className="sprk-b-TypeDisplayTwo sprk-b-PageTitle">Hello, Spark!</h1>
-      <h1 className="sprk-b-TypeDisplaySix sprk-u-mtl">Add components here</h1>
-    </main>
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={home} />
+          <Route path="/projects" component={projects} />
+          <Route path="/working-at-rt" component={working} />
+          <Route path="/sponsored" component={sponsored} />
+        </Switch>
+      </Layout>
+    </Router>
   );
-}
+};
 
 export default App;
